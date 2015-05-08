@@ -1,4 +1,6 @@
 # adapted from https://gist.github.com/cliffano/9868180
+# and
+# https://github.com/petems/ansible-json.git
 
 import json
 import logging
