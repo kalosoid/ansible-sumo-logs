@@ -1,0 +1,7 @@
+---
+
+  - name: Run a basic Command
+    command: pwd
+
+  - name: Run a basic Command that would fail
+    command: pwd /something/wrong
