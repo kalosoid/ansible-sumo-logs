@@ -12,10 +12,11 @@ fh = logging.FileHandler('sample.log')
 log.addHandler(fh)
 
 
-def json_log(res, play, task, state):
+def json_log(res, play, role, task, state):
     if type(res) == type(dict()):
         if 'verbose_override' not in res:
             res.update({"play":play})
+            res.update({"role":role})
             res.update({"task":task})
             res.update({"state": state})
             #        print('play: '+dumps(res))
@@ -33,39 +34,41 @@ class CallbackModule(object):
     def on_any(self, *args, **kwargs):
         self.play_name = self.playbook.filename
         self.task_name = None
+        self.role_name = None
         task = getattr(self, 'task', None)
         if task:
             self.task_name = task.name
-            print "play = %s, task= %s, args = %s, kwargs = %s" % (self.playbook.filename, task.name,args,kwargs)
+            self.role_name = task.role_name
+            print "play = %s, role= %s, task= %s, args = %s, kwargs = %s" % (self.playbook.filename, task.role_name,task.name,args,kwargs)
 
 
     def runner_on_failed(self, host, res, ignore_errors=False):
-        json_log(res, self.play_name, self.task_name,'failed')
+        json_log(res, self.play_name, self.role_name, self.task_name,'failed')
 
     def runner_on_ok(self, host, res):
-        json_log(res, self.play_name, self.task_name, 'ok')
+        json_log(res, self.play_name, self.role_name, self.task_name, 'ok')
 
     def runner_on_error(self, host, msg, res):
         res.update({"error-msg":msg})
-        json_log(res, self.play_name, self.task_name,'error')
+        json_log(res, self.play_name, self.role_name, self.task_name,'error')
 
     def runner_on_skipped(self, host, item=None):
         pass
 
     def runner_on_unreachable(self, host, res):
-        json_log(res, self.play_name, self.task_name,'unreachable')
+        json_log(res, self.play_name, self.role_name, self.task_name,'unreachable')
 
     def runner_on_no_hosts(self):
         pass
 
     def runner_on_async_poll(self, host, res, jid, clock):
-        json_log(res, self.play_name, self.task_name,'async_poll')
+        json_log(res, self.play_name, self.role_name, self.task_name,'async_poll')
 
     def runner_on_async_ok(self, host, res, jid):
-        json_log(res, self.play_name, self.task_name,'async_ok')
+        json_log(res, self.play_name, self.role_name, self.task_name,'async_ok')
 
     def runner_on_async_failed(self, host, res, jid):
-        json_log(res, self.play_name, self.task_name,'async_failed')
+        json_log(res, self.play_name, self.role_name, self.task_name,'async_failed')
 
     def playbook_on_start(self):
         pass
