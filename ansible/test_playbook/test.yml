@@ -1,6 +1,13 @@
 ---
   - hosts: all
 
+    tasks:
+    - name: Run a basic Command
+      command: pwd
+    - name: Run a basic Command that would fail
+      command: less my_file
 
     roles:
     - logs
+    - myrole
+    - testrole

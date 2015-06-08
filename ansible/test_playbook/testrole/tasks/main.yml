@@ -1,7 +1,7 @@
 ---
 
   - name: Run a basic Command
-    command: pwd
+    command: who
 
   - name: Run a basic Command that would fail
     command: less my_file
