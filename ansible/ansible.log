@@ -3818,3 +3818,618 @@ TypeError: <ansible.playbook.play.Play object at 0x7ff67b757120> is not JSON ser
 2015-06-08 08:49:15,457 p=26360 u=dgadoury |  PLAY RECAP ******************************************************************** 
 2015-06-08 08:49:15,457 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.52024, "role": "testrole ", "role_duration": {"logs ": 0.18480896949768066, "myrole ": 0.181441068649292, "testrole ": 0.1755061149597168}, "state": "completed", "uuid": "d8edc2a5-a04f-4d74-83b9-d7666d444acb"}
 2015-06-08 08:49:15,457 p=26360 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 14:28:17,678 p=16555 u=dgadoury |   
+2015-06-08 14:28:17,678 p=16555 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 14:28:17,679 p=16555 u=dgadoury |   
+2015-06-08 14:28:17,752 p=16555 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 14:28:17,752 p=16555 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 14:28:18,628 p=16555 u=dgadoury |  ok: [localhost]
+2015-06-08 14:28:18,628 p=16555 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 14:28:18,727 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:18,727 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.005190", "end": "2015-06-08 14:28:18.718664", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 14:28:18.713474", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:18,728 p=16555 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 14:28:18,831 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:18,831 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.007552", "end": "2015-06-08 14:28:18.823735", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 14:28:18.816183", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:18,831 p=16555 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 14:28:18,931 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:18,932 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.004880", "end": "2015-06-08 14:28:18.924250", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 14:28:18.919370", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:18,932 p=16555 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 14:28:19,024 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:19,025 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004287", "end": "2015-06-08 14:28:19.017487", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 14:28:19.013200", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:19,025 p=16555 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 14:28:19,125 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:19,125 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.007017", "end": "2015-06-08 14:28:19.116224", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:28:19.109207", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 ", "task": " Run a basic Command", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:19,125 p=16555 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 14:28:19,217 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:19,217 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003797", "end": "2015-06-08 14:28:19.208213", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:28:19.204416", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:19,217 p=16555 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 14:28:19,313 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:19,314 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004024", "end": "2015-06-08 14:28:19.305351", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:28:19.301327", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:19,314 p=16555 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 14:28:19,413 p=16555 u=dgadoury |  changed: [localhost]
+2015-06-08 14:28:19,413 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003864", "end": "2015-06-08 14:28:19.405166", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:28:19.401302", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b", "warnings": []}
+2015-06-08 14:28:19,413 p=16555 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 14:28:19,414 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.720559, "role": "testrole ", "role_duration": {"logs ": 0.2029740810394287, "myrole ": 0.1935441493988037, "testrole ": 0.19246792793273926}, "state": "completed", "uuid": "8fe6dab0-0c2d-46ff-b33a-9238aea3f69b"}
+2015-06-08 14:28:19,414 p=16555 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 14:36:46,683 p=16686 u=dgadoury |   
+2015-06-08 14:36:46,684 p=16686 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 14:36:46,684 p=16686 u=dgadoury |   
+2015-06-08 14:36:46,751 p=16686 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 14:36:46,751 p=16686 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 14:36:47,638 p=16686 u=dgadoury |  ok: [localhost]
+2015-06-08 14:36:47,638 p=16686 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 14:36:47,728 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:47,729 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004961", "end": "2015-06-08 14:36:47.722013", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 14:36:47.717052", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:47,729 p=16686 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 14:36:47,822 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:47,823 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.006675", "end": "2015-06-08 14:36:47.815256", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 14:36:47.808581", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:47,823 p=16686 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 14:36:47,913 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:47,913 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.004525", "end": "2015-06-08 14:36:47.906849", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 14:36:47.902324", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:47,914 p=16686 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 14:36:48,006 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:48,006 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003792", "end": "2015-06-08 14:36:47.999230", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 14:36:47.995438", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:48,006 p=16686 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 14:36:48,100 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:48,100 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.006316", "end": "2015-06-08 14:36:48.093448", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:36:48.087132", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 ", "task": " Run a basic Command", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:48,101 p=16686 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 14:36:48,194 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:48,195 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004461", "end": "2015-06-08 14:36:48.185947", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:36:48.181486", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:48,195 p=16686 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 14:36:48,285 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:48,286 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003880", "end": "2015-06-08 14:36:48.277210", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:36:48.273330", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:48,286 p=16686 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 14:36:48,380 p=16686 u=dgadoury |  changed: [localhost]
+2015-06-08 14:36:48,381 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003758", "end": "2015-06-08 14:36:48.373907", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:36:48.370149", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc", "warnings": []}
+2015-06-08 14:36:48,381 p=16686 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 14:36:48,381 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.687001, "role": "testrole ", "role_duration": {"logs ": 0.18458199501037598, "myrole ": 0.18346714973449707, "testrole ": 0.18886208534240723}, "state": "completed", "uuid": "11754205-6985-45ac-89d2-2414d339a3fc"}
+2015-06-08 14:36:48,382 p=16686 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 14:59:27,081 p=16808 u=dgadoury |   
+2015-06-08 14:59:27,081 p=16808 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 14:59:27,081 p=16808 u=dgadoury |   
+2015-06-08 14:59:49,848 p=16809 u=dgadoury |   
+2015-06-08 14:59:49,848 p=16809 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 14:59:49,848 p=16809 u=dgadoury |   
+2015-06-08 14:59:49,929 p=16809 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 14:59:49,929 p=16809 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 14:59:50,791 p=16809 u=dgadoury |  ok: [localhost]
+2015-06-08 14:59:50,792 p=16809 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 14:59:50,888 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:50,888 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004940", "end": "2015-06-08 14:59:50.880663", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 14:59:50.875723", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:50,888 p=16809 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 14:59:50,983 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:50,983 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.007678", "end": "2015-06-08 14:59:50.975495", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 14:59:50.967817", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:50,984 p=16809 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 14:59:51,078 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:51,078 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.005205", "end": "2015-06-08 14:59:51.067445", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 14:59:51.062240", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:51,078 p=16809 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 14:59:51,168 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:51,168 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004304", "end": "2015-06-08 14:59:51.160865", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 14:59:51.156561", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:51,169 p=16809 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 14:59:51,267 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:51,267 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.006941", "end": "2015-06-08 14:59:51.259695", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:59:51.252754", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 ", "task": " Run a basic Command", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:51,267 p=16809 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 14:59:51,357 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:51,358 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003983", "end": "2015-06-08 14:59:51.349148", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:59:51.345165", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:51,358 p=16809 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 14:59:51,446 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:51,446 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003374", "end": "2015-06-08 14:59:51.439313", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:59:51.435939", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:51,447 p=16809 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 14:59:51,541 p=16809 u=dgadoury |  changed: [localhost]
+2015-06-08 14:59:51,541 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003974", "end": "2015-06-08 14:59:51.532861", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 14:59:51.528887", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e", "warnings": []}
+2015-06-08 14:59:51,541 p=16809 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 14:59:51,542 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.678472, "role": "testrole ", "role_duration": {"logs ": 0.19214892387390137, "myrole ": 0.18501806259155273, "testrole ": 0.1896369457244873}, "state": "completed", "uuid": "f4fcf11f-8428-4d36-bd2c-c7b7b5d8315e"}
+2015-06-08 14:59:51,542 p=16809 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 15:04:43,441 p=16935 u=dgadoury |   
+2015-06-08 15:04:43,442 p=16935 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:04:43,442 p=16935 u=dgadoury |   
+2015-06-08 15:04:43,489 p=16935 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:04:43,489 p=16935 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:04:44,382 p=16935 u=dgadoury |  ok: [localhost]
+2015-06-08 15:04:44,383 p=16935 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:04:44,479 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:44,479 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004440", "end": "2015-06-08 15:04:44.469452", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:04:44.465012", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:44,480 p=16935 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 15:04:44,587 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:44,588 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.007068", "end": "2015-06-08 15:04:44.578608", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:04:44.571540", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:44,588 p=16935 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 15:04:44,687 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:44,687 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.008302", "end": "2015-06-08 15:04:44.679070", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:04:44.670768", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:44,688 p=16935 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 15:04:44,798 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:44,798 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.006146", "end": "2015-06-08 15:04:44.790466", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:04:44.784320", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:44,799 p=16935 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 15:04:44,900 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:44,900 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.005661", "end": "2015-06-08 15:04:44.892371", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:44.886710", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:44,900 p=16935 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 15:04:44,999 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:44,999 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004405", "end": "2015-06-08 15:04:44.991118", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:44.986713", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:45,000 p=16935 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 15:04:45,094 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:45,095 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003841", "end": "2015-06-08 15:04:45.086370", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:45.082529", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:45,095 p=16935 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 15:04:45,193 p=16935 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:45,193 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004329", "end": "2015-06-08 15:04:45.185862", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:45.181533", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db", "warnings": []}
+2015-06-08 15:04:45,193 p=16935 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:04:45,193 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.743128, "role": "testrole ", "role_duration": {"logs ": 0.20511698722839355, "myrole ": 0.2105860710144043, "testrole ": 0.20098209381103516}, "state": "completed", "uuid": "f239c864-9a9a-48b5-b338-1005463dc8db"}
+2015-06-08 15:04:45,194 p=16935 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 15:04:50,939 p=17023 u=dgadoury |   
+2015-06-08 15:04:50,939 p=17023 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:04:50,939 p=17023 u=dgadoury |   
+2015-06-08 15:04:50,969 p=17023 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:04:50,969 p=17023 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:04:51,183 p=17023 u=dgadoury |  ok: [localhost]
+2015-06-08 15:04:51,183 p=17023 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:04:51,282 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,282 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003902", "end": "2015-06-08 15:04:51.271399", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:04:51.267497", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,282 p=17023 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 15:04:51,378 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,379 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003862", "end": "2015-06-08 15:04:51.371129", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:04:51.367267", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,379 p=17023 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 15:04:51,482 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,482 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.004425", "end": "2015-06-08 15:04:51.470775", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:04:51.466350", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,482 p=17023 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 15:04:51,585 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,585 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004682", "end": "2015-06-08 15:04:51.578740", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:04:51.574058", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,586 p=17023 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 15:04:51,684 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,684 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.004442", "end": "2015-06-08 15:04:51.676234", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:51.671792", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,685 p=17023 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 15:04:51,783 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,784 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004568", "end": "2015-06-08 15:04:51.774142", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:51.769574", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,784 p=17023 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 15:04:51,884 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,885 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004014", "end": "2015-06-08 15:04:51.876819", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:51.872805", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,885 p=17023 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 15:04:51,981 p=17023 u=dgadoury |  changed: [localhost]
+2015-06-08 15:04:51,982 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004478", "end": "2015-06-08 15:04:51.973986", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:04:51.969508", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567", "warnings": []}
+2015-06-08 15:04:51,982 p=17023 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:04:51,982 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.034817, "role": "testrole ", "role_duration": {"logs ": 0.19554495811462402, "myrole ": 0.20681405067443848, "testrole ": 0.19829392433166504}, "state": "completed", "uuid": "63f92ff7-278e-46b8-b872-f059c8152567"}
+2015-06-08 15:04:51,982 p=17023 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 15:16:50,068 p=17133 u=dgadoury |   
+2015-06-08 15:16:50,069 p=17133 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:16:50,069 p=17133 u=dgadoury |   
+2015-06-08 15:16:50,130 p=17133 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:16:50,131 p=17133 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:16:51,017 p=17133 u=dgadoury |  ok: [localhost]
+2015-06-08 15:16:51,018 p=17133 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:16:51,108 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,108 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.005339", "end": "2015-06-08 15:16:51.100915", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:16:51.095576", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,109 p=17133 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 15:16:51,210 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,210 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.007620", "end": "2015-06-08 15:16:51.197968", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:16:51.190348", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,210 p=17133 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 15:16:51,301 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,301 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.003907", "end": "2015-06-08 15:16:51.294357", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:16:51.290450", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,302 p=17133 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 15:16:51,399 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,400 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003842", "end": "2015-06-08 15:16:51.392450", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:16:51.388608", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,400 p=17133 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 15:16:51,501 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,501 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.006331", "end": "2015-06-08 15:16:51.494237", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:16:51.487906", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,502 p=17133 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 15:16:51,592 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,593 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004064", "end": "2015-06-08 15:16:51.584462", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:16:51.580398", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,593 p=17133 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 15:16:51,684 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,685 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003443", "end": "2015-06-08 15:16:51.677233", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:16:51.673790", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,685 p=17133 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 15:16:51,779 p=17133 u=dgadoury |  changed: [localhost]
+2015-06-08 15:16:51,779 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004437", "end": "2015-06-08 15:16:51.772881", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:16:51.768444", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5", "warnings": []}
+2015-06-08 15:16:51,780 p=17133 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:16:51,780 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.699558, "role": "testrole ", "role_duration": {"logs ": 0.19247078895568848, "myrole ": 0.18993091583251953, "testrole ": 0.19280099868774414}, "state": "completed", "uuid": "df420ea8-19d0-4c70-8e85-aeeb9dfc0ec5"}
+2015-06-08 15:16:51,780 p=17133 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 15:19:10,346 p=17222 u=dgadoury |   
+2015-06-08 15:19:10,347 p=17222 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:19:10,347 p=17222 u=dgadoury |   
+2015-06-08 15:19:10,393 p=17222 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:19:10,393 p=17222 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:19:11,180 p=17222 u=dgadoury |  ok: [localhost]
+2015-06-08 15:19:11,183 p=17222 u=dgadoury |  fatal: [localhost] => Traceback (most recent call last):
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 590, in _executor
+    exec_rc = self._executor_internal(host, new_stdin)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 792, in _executor_internal
+    return self._executor_internal_inner(host, self.module_name, self.module_args, inject, port, complex_args=complex_args)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 1109, in _executor_internal_inner
+    self.callbacks.on_ok(host, data)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 539, in on_ok
+    super(PlaybookRunnerCallbacks, self).on_ok(host, host_result)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 345, in on_ok
+    call_callback_module('runner_on_ok', host, res)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 177, in call_callback_module
+    method(*args, **kwargs)
+  File "/Users/dgadoury/github/ansible-to-sumo/ansible/plugins/callback_plugins/sumo_logs.py", line 71, in runner_on_ok
+    print "start %s" % res['start']
+KeyError: 'start'
+
+2015-06-08 15:19:11,184 p=17222 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:19:11,192 p=17222 u=dgadoury |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2015-06-08 15:19:11,192 p=17222 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:19:11,193 ansible {"localhost": {"changed": 0, "failures": 0, "ok": 0, "skipped": 0, "unreachable": 1}, "play": "test_playbook/test.yml", "playbook_duration": 0.833966, "role": "logs ", "role_duration": {"logs ": 0.008677959442138672}, "state": "completed", "uuid": "2203accf-19f4-4a7f-8299-632e74f15f3c"}
+2015-06-08 15:19:11,194 p=17222 u=dgadoury |             to retry, use: --limit @/Users/dgadoury/test.retry
+
+2015-06-08 15:19:11,194 p=17222 u=dgadoury |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2015-06-08 15:20:58,079 p=17247 u=dgadoury |   
+2015-06-08 15:20:58,080 p=17247 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:20:58,080 p=17247 u=dgadoury |   
+2015-06-08 15:20:58,142 p=17247 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:20:58,143 p=17247 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:20:58,425 p=17247 u=dgadoury |  ok: [localhost]
+2015-06-08 15:20:58,427 p=17247 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:20:58,526 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:58,527 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.005117", "end": "2015-06-08 15:20:58.518362", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:20:58.513245", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:58,527 p=17247 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 15:20:58,624 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:58,624 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.006940", "end": "2015-06-08 15:20:58.615296", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:20:58.608356", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:58,624 p=17247 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 15:20:58,719 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:58,719 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.006737", "end": "2015-06-08 15:20:58.712567", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:20:58.705830", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:58,719 p=17247 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 15:20:58,815 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:58,816 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.005636", "end": "2015-06-08 15:20:58.807302", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:20:58.801666", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:58,816 p=17247 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 15:20:58,912 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:58,912 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.007506", "end": "2015-06-08 15:20:58.904551", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:20:58.897045", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:58,913 p=17247 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 15:20:59,003 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:59,004 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004284", "end": "2015-06-08 15:20:58.995551", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:20:58.991267", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:59,004 p=17247 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 15:20:59,094 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:59,095 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003568", "end": "2015-06-08 15:20:59.085926", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:20:59.082358", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:59,095 p=17247 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 15:20:59,191 p=17247 u=dgadoury |  changed: [localhost]
+2015-06-08 15:20:59,192 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003892", "end": "2015-06-08 15:20:59.182576", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:20:59.178684", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d", "warnings": []}
+2015-06-08 15:20:59,192 p=17247 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:20:59,192 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.099342, "role": "testrole ", "role_duration": {"logs ": 0.19728994369506836, "myrole ": 0.1915750503540039, "testrole ": 0.1879899501800537}, "state": "completed", "uuid": "5aa61b48-7a23-4ac4-a775-2c321fc6b87d"}
+2015-06-08 15:20:59,192 p=17247 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 15:21:45,658 p=17335 u=dgadoury |   
+2015-06-08 15:21:45,658 p=17335 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:21:45,658 p=17335 u=dgadoury |   
+2015-06-08 15:21:56,690 p=17336 u=dgadoury |   
+2015-06-08 15:21:56,690 p=17336 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:21:56,690 p=17336 u=dgadoury |   
+2015-06-08 15:21:56,718 p=17336 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:21:56,718 p=17336 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:21:56,965 p=17336 u=dgadoury |  ok: [localhost]
+2015-06-08 15:21:56,968 p=17336 u=dgadoury |  fatal: [localhost] => Traceback (most recent call last):
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 590, in _executor
+    exec_rc = self._executor_internal(host, new_stdin)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 792, in _executor_internal
+    return self._executor_internal_inner(host, self.module_name, self.module_args, inject, port, complex_args=complex_args)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 1109, in _executor_internal_inner
+    self.callbacks.on_ok(host, data)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 539, in on_ok
+    super(PlaybookRunnerCallbacks, self).on_ok(host, host_result)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 345, in on_ok
+    call_callback_module('runner_on_ok', host, res)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 177, in call_callback_module
+    method(*args, **kwargs)
+  File "/Users/dgadoury/github/ansible-to-sumo/ansible/plugins/callback_plugins/sumo_logs.py", line 72, in runner_on_ok
+    print "start: %s" % res[start]
+NameError: global name 'start' is not defined
+
+2015-06-08 15:21:56,968 p=17336 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:21:56,977 p=17336 u=dgadoury |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2015-06-08 15:21:56,977 p=17336 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:21:56,978 ansible {"localhost": {"changed": 0, "failures": 0, "ok": 0, "skipped": 0, "unreachable": 1}, "play": "test_playbook/test.yml", "playbook_duration": 0.279676, "role": "logs ", "role_duration": {"logs ": 0.009361028671264648}, "state": "completed", "uuid": "4b295331-76e2-4522-8649-cff2401a2002"}
+2015-06-08 15:21:56,978 p=17336 u=dgadoury |             to retry, use: --limit @/Users/dgadoury/test.retry
+
+2015-06-08 15:21:56,978 p=17336 u=dgadoury |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2015-06-08 15:22:21,292 p=17361 u=dgadoury |   
+2015-06-08 15:22:21,292 p=17361 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:22:21,292 p=17361 u=dgadoury |   
+2015-06-08 15:22:21,324 p=17361 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:22:21,324 p=17361 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:22:21,540 p=17361 u=dgadoury |  ok: [localhost]
+2015-06-08 15:22:21,542 p=17361 u=dgadoury |  fatal: [localhost] => Traceback (most recent call last):
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 590, in _executor
+    exec_rc = self._executor_internal(host, new_stdin)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 792, in _executor_internal
+    return self._executor_internal_inner(host, self.module_name, self.module_args, inject, port, complex_args=complex_args)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 1109, in _executor_internal_inner
+    self.callbacks.on_ok(host, data)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 539, in on_ok
+    super(PlaybookRunnerCallbacks, self).on_ok(host, host_result)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 345, in on_ok
+    call_callback_module('runner_on_ok', host, res)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 177, in call_callback_module
+    method(*args, **kwargs)
+  File "/Users/dgadoury/github/ansible-to-sumo/ansible/plugins/callback_plugins/sumo_logs.py", line 72, in runner_on_ok
+    print res[start]
+NameError: global name 'start' is not defined
+
+2015-06-08 15:22:21,543 p=17361 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:22:21,551 p=17361 u=dgadoury |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2015-06-08 15:22:21,552 p=17361 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:22:21,552 ansible {"localhost": {"changed": 0, "failures": 0, "ok": 0, "skipped": 0, "unreachable": 1}, "play": "test_playbook/test.yml", "playbook_duration": 0.252933, "role": "logs ", "role_duration": {"logs ": 0.009121894836425781}, "state": "completed", "uuid": "4fe7c0bb-a1d2-4e5d-a452-3833b846d8fa"}
+2015-06-08 15:22:21,553 p=17361 u=dgadoury |             to retry, use: --limit @/Users/dgadoury/test.retry
+
+2015-06-08 15:22:21,553 p=17361 u=dgadoury |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2015-06-08 15:22:26,609 p=17387 u=dgadoury |   
+2015-06-08 15:22:26,609 p=17387 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:22:26,609 p=17387 u=dgadoury |   
+2015-06-08 15:22:26,636 p=17387 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:22:26,637 p=17387 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:22:26,862 p=17387 u=dgadoury |  ok: [localhost]
+2015-06-08 15:22:26,863 p=17387 u=dgadoury |  fatal: [localhost] => Traceback (most recent call last):
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 590, in _executor
+    exec_rc = self._executor_internal(host, new_stdin)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 792, in _executor_internal
+    return self._executor_internal_inner(host, self.module_name, self.module_args, inject, port, complex_args=complex_args)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 1109, in _executor_internal_inner
+    self.callbacks.on_ok(host, data)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 539, in on_ok
+    super(PlaybookRunnerCallbacks, self).on_ok(host, host_result)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 345, in on_ok
+    call_callback_module('runner_on_ok', host, res)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 177, in call_callback_module
+    method(*args, **kwargs)
+  File "/Users/dgadoury/github/ansible-to-sumo/ansible/plugins/callback_plugins/sumo_logs.py", line 72, in runner_on_ok
+    print res[start]
+NameError: global name 'start' is not defined
+
+2015-06-08 15:22:26,864 p=17387 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:22:26,873 p=17387 u=dgadoury |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2015-06-08 15:22:26,873 p=17387 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:22:26,873 ansible {"localhost": {"changed": 0, "failures": 0, "ok": 0, "skipped": 0, "unreachable": 1}, "play": "test_playbook/test.yml", "playbook_duration": 0.256873, "role": "logs ", "role_duration": {"logs ": 0.009002923965454102}, "state": "completed", "uuid": "1f58337a-24c1-48d1-8c6f-997a88077b4a"}
+2015-06-08 15:22:26,874 p=17387 u=dgadoury |             to retry, use: --limit @/Users/dgadoury/test.retry
+
+2015-06-08 15:22:26,874 p=17387 u=dgadoury |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2015-06-08 15:23:45,209 p=17415 u=dgadoury |   
+2015-06-08 15:23:45,209 p=17415 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:23:45,209 p=17415 u=dgadoury |   
+2015-06-08 15:23:45,237 p=17415 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:23:45,237 p=17415 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:23:46,003 p=17415 u=dgadoury |  ok: [localhost]
+2015-06-08 15:23:46,005 p=17415 u=dgadoury |  fatal: [localhost] => Traceback (most recent call last):
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 590, in _executor
+    exec_rc = self._executor_internal(host, new_stdin)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 792, in _executor_internal
+    return self._executor_internal_inner(host, self.module_name, self.module_args, inject, port, complex_args=complex_args)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 1109, in _executor_internal_inner
+    self.callbacks.on_ok(host, data)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 539, in on_ok
+    super(PlaybookRunnerCallbacks, self).on_ok(host, host_result)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 345, in on_ok
+    call_callback_module('runner_on_ok', host, res)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 177, in call_callback_module
+    method(*args, **kwargs)
+  File "/Users/dgadoury/github/ansible-to-sumo/ansible/plugins/callback_plugins/sumo_logs.py", line 72, in runner_on_ok
+    if res[start]:
+NameError: global name 'start' is not defined
+
+2015-06-08 15:23:46,005 p=17415 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:23:46,014 p=17415 u=dgadoury |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2015-06-08 15:23:46,014 p=17415 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:23:46,014 ansible {"localhost": {"changed": 0, "failures": 0, "ok": 0, "skipped": 0, "unreachable": 1}, "play": "test_playbook/test.yml", "playbook_duration": 0.797381, "role": "logs ", "role_duration": {"logs ": 0.008569002151489258}, "state": "completed", "uuid": "a5b429f4-8303-405b-a6d3-99af9d5a11f1"}
+2015-06-08 15:23:46,015 p=17415 u=dgadoury |             to retry, use: --limit @/Users/dgadoury/test.retry
+
+2015-06-08 15:23:46,015 p=17415 u=dgadoury |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2015-06-08 15:24:23,958 p=17440 u=dgadoury |   
+2015-06-08 15:24:23,958 p=17440 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:24:23,958 p=17440 u=dgadoury |   
+2015-06-08 15:24:23,990 p=17440 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:24:23,990 p=17440 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:24:24,218 p=17440 u=dgadoury |  ok: [localhost]
+2015-06-08 15:24:24,219 p=17440 u=dgadoury |  fatal: [localhost] => Traceback (most recent call last):
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 590, in _executor
+    exec_rc = self._executor_internal(host, new_stdin)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 792, in _executor_internal
+    return self._executor_internal_inner(host, self.module_name, self.module_args, inject, port, complex_args=complex_args)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 1109, in _executor_internal_inner
+    self.callbacks.on_ok(host, data)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 539, in on_ok
+    super(PlaybookRunnerCallbacks, self).on_ok(host, host_result)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 345, in on_ok
+    call_callback_module('runner_on_ok', host, res)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 177, in call_callback_module
+    method(*args, **kwargs)
+  File "/Users/dgadoury/github/ansible-to-sumo/ansible/plugins/callback_plugins/sumo_logs.py", line 72, in runner_on_ok
+    if res[start]:
+NameError: global name 'start' is not defined
+
+2015-06-08 15:24:24,220 p=17440 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:24:24,228 p=17440 u=dgadoury |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2015-06-08 15:24:24,229 p=17440 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:24:24,229 ansible {"localhost": {"changed": 0, "failures": 0, "ok": 0, "skipped": 0, "unreachable": 1}, "play": "test_playbook/test.yml", "playbook_duration": 0.26341, "role": "logs ", "role_duration": {"logs ": 0.00909113883972168}, "state": "completed", "uuid": "e4ad52d8-e1dd-45d1-b251-5939886d8dfc"}
+2015-06-08 15:24:24,230 p=17440 u=dgadoury |             to retry, use: --limit @/Users/dgadoury/test.retry
+
+2015-06-08 15:24:24,230 p=17440 u=dgadoury |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2015-06-08 15:25:55,091 p=17465 u=dgadoury |   
+2015-06-08 15:25:55,091 p=17465 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:25:55,091 p=17465 u=dgadoury |   
+2015-06-08 15:25:55,141 p=17465 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:25:55,141 p=17465 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:25:55,974 p=17465 u=dgadoury |  ok: [localhost]
+2015-06-08 15:25:55,976 p=17465 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:25:56,074 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,075 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004765", "end": "2015-06-08 15:25:56.067132", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:25:56.062367", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,075 p=17465 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 15:25:56,170 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,170 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.007254", "end": "2015-06-08 15:25:56.163191", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:25:56.155937", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,171 p=17465 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 15:25:56,263 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,263 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.005145", "end": "2015-06-08 15:25:56.255965", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:25:56.250820", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,264 p=17465 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 15:25:56,365 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,365 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.006632", "end": "2015-06-08 15:25:56.352135", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:25:56.345503", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,366 p=17465 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 15:25:56,463 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,463 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.006306", "end": "2015-06-08 15:25:56.455040", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:25:56.448734", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,463 p=17465 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 15:25:56,560 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,561 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004307", "end": "2015-06-08 15:25:56.552815", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:25:56.548508", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,562 p=17465 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 15:25:56,659 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,660 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003500", "end": "2015-06-08 15:25:56.652690", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:25:56.649190", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,660 p=17465 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 15:25:56,760 p=17465 u=dgadoury |  changed: [localhost]
+2015-06-08 15:25:56,760 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004098", "end": "2015-06-08 15:25:56.752455", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:25:56.748357", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331", "warnings": []}
+2015-06-08 15:25:56,760 p=17465 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:25:56,761 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.657386, "role": "testrole ", "role_duration": {"logs ": 0.1949021816253662, "myrole ": 0.19512605667114258, "testrole ": 0.19635295867919922}, "state": "completed", "uuid": "e51285ff-dad5-4bc7-b100-24a7473e7331"}
+2015-06-08 15:25:56,761 p=17465 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 15:26:04,527 p=17553 u=dgadoury |   
+2015-06-08 15:26:04,528 p=17553 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:26:04,528 p=17553 u=dgadoury |   
+2015-06-08 15:26:04,557 p=17553 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:26:04,557 p=17553 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:26:04,782 p=17553 u=dgadoury |  ok: [localhost]
+2015-06-08 15:26:04,783 p=17553 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:26:04,884 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:04,884 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004097", "end": "2015-06-08 15:26:04.872555", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:26:04.868458", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:04,885 p=17553 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 15:26:04,980 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:04,981 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004101", "end": "2015-06-08 15:26:04.972382", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 15:26:04.968281", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:04,981 p=17553 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 15:26:05,080 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:05,081 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.005256", "end": "2015-06-08 15:26:05.072633", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:26:05.067377", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:05,081 p=17553 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 15:26:05,176 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:05,176 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004239", "end": "2015-06-08 15:26:05.168546", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 15:26:05.164307", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:05,177 p=17553 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 15:26:05,273 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:05,274 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.004902", "end": "2015-06-08 15:26:05.264355", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:26:05.259453", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:05,274 p=17553 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 15:26:05,364 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:05,365 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004077", "end": "2015-06-08 15:26:05.356788", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:26:05.352711", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:05,365 p=17553 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 15:26:05,458 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:05,458 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003357", "end": "2015-06-08 15:26:05.450796", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:26:05.447439", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:05,459 p=17553 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 15:26:05,553 p=17553 u=dgadoury |  changed: [localhost]
+2015-06-08 15:26:05,553 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004466", "end": "2015-06-08 15:26:05.543698", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 15:26:05.539232", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5", "warnings": []}
+2015-06-08 15:26:05,553 p=17553 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:26:05,554 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": "test_playbook/test.yml", "playbook_duration": 1.019884, "role": "testrole ", "role_duration": {"logs ": 0.19832181930541992, "myrole ": 0.1955699920654297, "testrole ": 0.18815016746520996}, "state": "completed", "uuid": "1fed456d-6461-4af7-bc3c-16b8385979c5"}
+2015-06-08 15:26:05,554 p=17553 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   
+2015-06-08 15:27:52,546 p=17641 u=dgadoury |   
+2015-06-08 15:27:52,546 p=17641 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 15:27:52,546 p=17641 u=dgadoury |   
+2015-06-08 15:27:52,578 p=17641 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 15:27:52,578 p=17641 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 15:27:52,807 p=17641 u=dgadoury |  ok: [localhost]
+2015-06-08 15:27:52,809 p=17641 u=dgadoury |  fatal: [localhost] => Traceback (most recent call last):
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 590, in _executor
+    exec_rc = self._executor_internal(host, new_stdin)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 792, in _executor_internal
+    return self._executor_internal_inner(host, self.module_name, self.module_args, inject, port, complex_args=complex_args)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/runner/__init__.py", line 1109, in _executor_internal_inner
+    self.callbacks.on_ok(host, data)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 539, in on_ok
+    super(PlaybookRunnerCallbacks, self).on_ok(host, host_result)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 345, in on_ok
+    call_callback_module('runner_on_ok', host, res)
+  File "/usr/local/Cellar/ansible/1.8.2/libexec/lib/python2.7/site-packages/ansible/callbacks.py", line 177, in call_callback_module
+    method(*args, **kwargs)
+  File "/Users/dgadoury/github/ansible-to-sumo/ansible/plugins/callback_plugins/sumo_logs.py", line 72, in runner_on_ok
+    if key == start:
+NameError: global name 'start' is not defined
+
+2015-06-08 15:27:52,810 p=17641 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 15:27:52,819 p=17641 u=dgadoury |  FATAL: no hosts matched or all hosts have already failed -- aborting
+
+2015-06-08 15:27:52,819 p=17641 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 15:27:52,820 ansible {"localhost": {"changed": 0, "failures": 0, "ok": 0, "skipped": 0, "unreachable": 1}, "play": "test_playbook/test.yml", "playbook_duration": 0.266079, "role": "logs ", "role_duration": {"logs ": 0.009637117385864258}, "state": "completed", "uuid": "587a0f17-f155-4f0e-8b11-55ace7c28d9c"}
+2015-06-08 15:27:52,820 p=17641 u=dgadoury |             to retry, use: --limit @/Users/dgadoury/test.retry
+
+2015-06-08 15:27:52,820 p=17641 u=dgadoury |  localhost                  : ok=0    changed=0    unreachable=1    failed=0   
+2015-06-08 16:21:34,041 p=17757 u=dgadoury |   
+2015-06-08 16:21:34,042 p=17757 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 16:21:34,042 p=17757 u=dgadoury |   
+2015-06-08 16:21:34,112 p=17757 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 16:21:34,112 p=17757 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 16:21:34,977 p=17757 u=dgadoury |  ok: [localhost]
+2015-06-08 16:21:34,978 p=17757 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 16:21:35,076 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,077 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.005381", "end": "2015-06-08 16:21:35.066831", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 16:21:35.061450", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,077 p=17757 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 16:21:35,179 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,180 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.007809", "end": "2015-06-08 16:21:35.170816", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 16:21:35.163007", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,180 p=17757 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 16:21:35,280 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,281 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.005784", "end": "2015-06-08 16:21:35.270386", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 16:21:35.264602", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,281 p=17757 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 16:21:35,391 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,392 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.006129", "end": "2015-06-08 16:21:35.381764", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 16:21:35.375635", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,392 p=17757 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 16:21:35,490 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,491 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.007288", "end": "2015-06-08 16:21:35.481752", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:21:35.474464", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,492 p=17757 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 16:21:35,596 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,597 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.006266", "end": "2015-06-08 16:21:35.586378", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:21:35.580112", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,597 p=17757 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 16:21:35,694 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,694 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.003465", "end": "2015-06-08 16:21:35.686594", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:21:35.683129", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,695 p=17757 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 16:21:35,792 p=17757 u=dgadoury |  changed: [localhost]
+2015-06-08 16:21:35,792 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004399", "end": "2015-06-08 16:21:35.784013", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:21:35.779614", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "43eaeea1-d56c-4de9-a50b-82716801fa1c", "warnings": []}
+2015-06-08 16:21:35,792 p=17757 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 16:22:19,793 p=17846 u=dgadoury |   
+2015-06-08 16:22:19,794 p=17846 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 16:22:19,794 p=17846 u=dgadoury |   
+2015-06-08 16:22:19,842 p=17846 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 16:22:19,842 p=17846 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 16:22:20,085 p=17846 u=dgadoury |  ok: [localhost]
+2015-06-08 16:22:20,086 p=17846 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 16:22:20,187 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:20,187 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004767", "end": "2015-06-08 16:22:20.178677", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 16:22:20.173910", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:20,188 p=17846 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 16:22:20,286 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:20,287 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.005328", "end": "2015-06-08 16:22:20.278471", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 16:22:20.273143", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:20,287 p=17846 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 16:22:20,391 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:20,391 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.005286", "end": "2015-06-08 16:22:20.381712", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 16:22:20.376426", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:20,391 p=17846 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 16:22:20,484 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:20,484 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003859", "end": "2015-06-08 16:22:20.476180", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 16:22:20.472321", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:20,484 p=17846 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 16:22:20,585 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:20,586 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.005952", "end": "2015-06-08 16:22:20.575756", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:22:20.569804", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:20,586 p=17846 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 16:22:20,692 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:20,693 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.005036", "end": "2015-06-08 16:22:20.684942", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:22:20.679906", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:20,693 p=17846 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 16:22:21,800 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:21,801 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:01.009865", "end": "2015-06-08 16:22:21.789249", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:22:20.779384", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:21,801 p=17846 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 16:22:21,896 p=17846 u=dgadoury |  changed: [localhost]
+2015-06-08 16:22:21,896 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003981", "end": "2015-06-08 16:22:21.887984", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:22:21.884003", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "3157208d-3f31-41e1-b778-f5c6b801fb3f", "warnings": []}
+2015-06-08 16:22:21,897 p=17846 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 16:24:11,481 p=17938 u=dgadoury |   
+2015-06-08 16:24:11,481 p=17938 u=dgadoury |  /usr/local/Cellar/ansible/1.8.2/libexec/bin/ansible-playbook test_playbook/test.yml -i inv
+2015-06-08 16:24:11,482 p=17938 u=dgadoury |   
+2015-06-08 16:24:11,526 p=17938 u=dgadoury |  PLAY [all] ******************************************************************** 
+2015-06-08 16:24:11,527 p=17938 u=dgadoury |  GATHERING FACTS *************************************************************** 
+2015-06-08 16:24:12,381 p=17938 u=dgadoury |  ok: [localhost]
+2015-06-08 16:24:12,382 p=17938 u=dgadoury |  TASK: [logs | Run a basic Command] ******************************************** 
+2015-06-08 16:24:12,483 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:12,484 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004318", "end": "2015-06-08 16:24:12.472254", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 16:24:12.467936", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": " Run a basic Command", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:12,484 p=17938 u=dgadoury |  TASK: [logs | Run a basic Command that would fail] **************************** 
+2015-06-08 16:24:12,582 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:12,583 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.006714", "end": "2015-06-08 16:24:12.572875", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "logs ", "start": "2015-06-08 16:24:12.566161", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:12,583 p=17938 u=dgadoury |  TASK: [myrole | Run a basic Command] ****************************************** 
+2015-06-08 16:24:12,682 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:12,682 ansible {"changed": true, "cmd": ["ls"], "delta": "0:00:00.004794", "end": "2015-06-08 16:24:12.674443", "invocation": {"module_args": "ls", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 16:24:12.669649", "state": "ok", "stderr": "", "stdout": "myrole\nroles\ntest.yml\ntestrole", "task": " Run a basic Command", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:12,683 p=17938 u=dgadoury |  TASK: [myrole | Run a basic Command that would fail] ************************** 
+2015-06-08 16:24:12,775 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:12,775 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004677", "end": "2015-06-08 16:24:12.767677", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "myrole ", "start": "2015-06-08 16:24:12.763000", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:12,776 p=17938 u=dgadoury |  TASK: [testrole | Run a basic Command] **************************************** 
+2015-06-08 16:24:12,868 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:12,868 ansible {"changed": true, "cmd": ["who"], "delta": "0:00:00.005758", "end": "2015-06-08 16:24:12.860736", "invocation": {"module_args": "who", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:24:12.854978", "state": "ok", "stderr": "", "stdout": "dgadoury console  Jun  8 07:38 \ndgadoury ttys000  Jun  8 07:42 \ndgadoury ttys001  Jun  8 14:35 \ndgadoury ttys002  Jun  8 15:00 ", "task": " Run a basic Command", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:12,869 p=17938 u=dgadoury |  TASK: [testrole | Run a basic Command that would fail] ************************ 
+2015-06-08 16:24:12,966 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:12,966 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.003941", "end": "2015-06-08 16:24:12.958451", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:24:12.954510", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": " Run a basic Command that would fail", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:12,967 p=17938 u=dgadoury |  TASK: [Run a basic Command] *************************************************** 
+2015-06-08 16:24:13,068 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:13,068 ansible {"changed": true, "cmd": ["pwd"], "delta": "0:00:00.004382", "end": "2015-06-08 16:24:13.059702", "invocation": {"module_args": "pwd", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:24:13.055320", "state": "ok", "stderr": "", "stdout": "/Users/dgadoury/github/ansible-to-sumo/ansible/test_playbook", "task": "Run a basic Command", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:13,069 p=17938 u=dgadoury |  TASK: [Run a basic Command that would fail] *********************************** 
+2015-06-08 16:24:13,177 p=17938 u=dgadoury |  changed: [localhost]
+2015-06-08 16:24:13,177 ansible {"changed": true, "cmd": ["less", "my_file"], "delta": "0:00:00.004970", "end": "2015-06-08 16:24:13.168906", "invocation": {"module_args": "less my_file", "module_name": "command"}, "play": "test_playbook/test.yml", "rc": 0, "role": "testrole ", "start": "2015-06-08 16:24:13.163936", "state": "ok", "stderr": "my_file: No such file or directory", "stdout": "", "task": "Run a basic Command that would fail", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab", "warnings": []}
+2015-06-08 16:24:13,178 p=17938 u=dgadoury |  PLAY RECAP ******************************************************************** 
+2015-06-08 16:24:13,178 ansible {"localhost": {"changed": 8, "failures": 0, "ok": 9, "skipped": 0, "unreachable": 0}, "play": null, "playbook_duration": 1.685592, "role": "testrole ", "role_duration": {"logs ": 0.2009429931640625, "myrole ": 0.19248104095458984, "testrole ": 0.19093680381774902}, "state": "completed", "uuid": "bca9af73-5ec6-40ba-a756-10d300de23ab"}
+2015-06-08 16:24:13,178 p=17938 u=dgadoury |  localhost                  : ok=9    changed=8    unreachable=0    failed=0   

@@ -57,11 +57,7 @@ class CallbackModule(object):
 
         task = getattr(self, 'task', None)
         if task:
-            print "play = %s, role= %s, task= %s, args = %s, kwargs = %s" % (self.play, self.role, self.task,args,kwargs)
-            #print "play = %s, role= %s, task= %s, args = %s, kwargs = %s" % (self.playbook.filename, self.role, self.task,args,kwargs)
-
-        self.play_name = self.playbook.filename
-
+            print "play = %s, role = %s, task = %s, args = %s, kwargs = %s" % (self.play, self.role, self.task,args,kwargs)
 
     def runner_on_failed(self, host, res, ignore_errors=False):
         json_log(res, self.uuid, self.play, self.role, self.task,'failed')
@@ -161,4 +157,4 @@ class CallbackModule(object):
         res.update({"role_duration":self.stats})
         print res
 
-        json_log(res, self.uuid, self.play_name, self.role, None,'completed')
+        json_log(res, self.uuid, self.play, self.role, None,'completed')
