@@ -142,6 +142,8 @@ class CallbackModule(object):
 
     def playbook_on_stats(self, stats):
 
+        self.play = self.playbook.filename
+
         res = dict([(h, stats.summarize(h)) for h in stats.processed])
 
         end_time = datetime.now()
@@ -155,6 +157,5 @@ class CallbackModule(object):
             self.stats[self.current] = time.time() - self.stats[self.current]
 
         res.update({"role_duration":self.stats})
-        print res
-
+        
         json_log(res, self.uuid, self.play, self.role, None,'Play Completed')
