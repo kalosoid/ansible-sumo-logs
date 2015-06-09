@@ -157,4 +157,4 @@ class CallbackModule(object):
         res.update({"role_duration":self.stats})
         print res
 
-        json_log(res, self.uuid, self.play, self.role, None,'completed')
+        json_log(res, self.uuid, self.play, self.role, None,'Play Completed')
