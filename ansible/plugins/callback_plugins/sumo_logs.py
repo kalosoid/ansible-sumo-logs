@@ -8,6 +8,7 @@ import json
 import logging
 import logging.handlers
 import uuid
+import platform
 import time
 from datetime import datetime, timedelta
 
@@ -17,8 +18,11 @@ log = logging.getLogger("ansible")
 
 
 def json_log(res, uuid, play, role, task, state):
+    host = platform.node()
+
     if type(res) == type(dict()):
         if 'verbose_override' not in res:
+            res.update({"host":host})
             res.update({"uuid":uuid})
             res.update({"play":play})
             res.update({"role":role})
@@ -31,12 +35,13 @@ def json_log(res, uuid, play, role, task, state):
 
 
 class CallbackModule(object):
-    
+
     start_time = datetime.now()
     uuid = None
 
     def __init__(self):
 
+        self.node = platform.node()
         self.stats = {}
         self.current = None
         self.role = None
@@ -56,8 +61,8 @@ class CallbackModule(object):
         self.play = self.playbook.filename
 
         task = getattr(self, 'task', None)
-        if task:
-            print "play = %s, role = %s, task = %s, args = %s, kwargs = %s" % (self.play, self.role, self.task,args,kwargs)
+#        if task:
+#            print "play = %s, role = %s, task = %s, args = %s, kwargs = %s" % (self.play, self.role, self.task,args,kwargs)
 
     def runner_on_failed(self, host, res, ignore_errors=False):
         json_log(res, self.uuid, self.play, self.role, self.task,'failed')
@@ -149,8 +154,10 @@ class CallbackModule(object):
         end_time = datetime.now()
         timedelta = end_time - self.start_time
         duration = timedelta.total_seconds()
-        
-        res.update({"playbook_duration":duration})
+
+        res.update({"start":str(self.start_time)})
+        res.update({"end":str(end_time)})
+        res.update({"play_duration":duration})
 
         if self.current is not None and self.current != "NULL":
             # Record the timing of the very last task
