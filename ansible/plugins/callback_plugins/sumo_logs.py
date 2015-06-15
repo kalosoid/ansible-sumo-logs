@@ -111,8 +111,11 @@ class CallbackModule(object):
 
         # Check to see if we are processing a role
         if len(my_list) == 2:
-            self.role = my_list[0]
-            self.task = my_list[1]
+            self.role = str.strip(my_list[0])
+        #    self.role = self.role.strip()
+            self.task = str.strip(my_list[1])
+         #   self.task = self.task.strip()
+            print "ROLE ROLE ROLE %s" % self.role
 
             # Check to see if we are procesing a new role. If so, calculate the duration of the previous role
             if self.current is not None and self.current != self.role:
@@ -125,7 +128,9 @@ class CallbackModule(object):
 
         # We are now processing playbook level tasks
         else:
-            self.task = my_list[0]
+            self.task = str.strip(my_list[0])
+            #self.task = str.strip(my_list[0])
+            #self.task = self.task.strip()
             if self.current != "NULL":
                 self.stats[self.current] = time.time() - self.stats[self.current]
             self.current = "NULL"
