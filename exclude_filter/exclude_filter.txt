@@ -1,0 +1,11 @@
+# Ansible includes default logs that don't provide any real value and can be excluded. 
+#
+#   2015-06-06 13:40:49,627 p=27444 u=user |  PLAY [all] ******************************************************************** 
+#   2015-06-06 13:40:49,628 p=27444 u=user |  GATHERING FACTS *************************************************************** 
+#   2015-06-06 13:40:50,521 p=27444 u=user |  ok: [localhost]
+#   2015-06-06 13:40:50,521 p=27444 u=user |  TASK: [logs | Run a basic Command] ******************************************** 
+#   2015-06-06 13:40:50,626 p=27444 u=user |  changed: [localhost]
+#
+# Configure your log source with the following exclude filter by using the Sumo Logic documentation - https://service.sumologic.com/help/Default.htm#Include_and_exclude_filters.htm
+#
+ ^.*p=\d+\su=\w+\s\|.*
